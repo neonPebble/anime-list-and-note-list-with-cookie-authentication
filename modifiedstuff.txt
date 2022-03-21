@@ -1,0 +1,62 @@
+---tried adding to cookie:
+ sameSite: "none"
+ secure: true
+
+
+ issues:
+   1. secure has to be true if sameSite is none otherwise browser wont set cookie
+   2. if secure is set to true in sesion cookie , no cookie is sent to the user
+
+---removed the above from cookie
+
+---changed /loginSuccess route to respond with json
+
+---changed loginfailure route to respond with json
+
+---added all the react pages and changed the "/" route 
+ issues:
+   1.Register page is showing error on submit(might be route res problem)
+   (
+     error:
+   Uncaught (in promise) SyntaxError: Unexpected token o in JSON at position 1
+    at JSON.parse (<anonymous>)
+    at Object.onClick [as clickfalse] (index.f258b4b3.js:1:6106)
+    )  
+     ---fixed("/register" was redirecting instead of sending json as expected by frontend
+     )
+
+    2.Home page has a lot of overlaps, missing components and user is not showing, the symbols(&#x253c) just displays as hex instead of symbol.
+
+---modified the home page but need to center the + symbol and change background color of the add anime box and need to remove the href attribute and instead use navigation
+  issues:
+     1.addAnime box background is not distinct
+     2.the link to "/searchanime" goes nowhere
+     3.+ symbol shows at the begining instead of being centered
+     4. the whole add anime box sits awkwardly in the center
+
+--- made visual changes but the add anime button still not working
+
+
+---made more changes but it seems no img url is saved on the database
+   I get error on frontend (no large property probably for img url)
+
+    issues:
+      1. somehow no coverImage property is set in the sentback data . I dont get how but need to examine search anime component.
+
+---coverImage issue was because of incorrect schema. there was another issue with
+   register. Apparently JSON.parse(fetchRes) does not work so it was changed to fetchRes.json()
+
+---New issue o SearchAnime page
+   
+   issue:
+     1. error in console says:
+                         index.d8c9934c.js:1 Uncaught (in promise) TypeError: e.map is not a function at index.d8c9934c.js:1:7552
+  
+--- fixed the map issue, it was because of trying to map empty array.
+
+
+--- There was another issue with the home animelist component. .splice was not running at all . It turns out the problem was naming data attributes with camelcase.
+need to use dash instead of cappittal leters in data attributes
+
+
+---there is an issue with the SearchAnime's Remanime and addanime buttons. they dont seem to change the state when pressed. also no Remove from list button is rendered initially, even though the anime is in the users animelist.
