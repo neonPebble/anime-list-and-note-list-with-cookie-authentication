@@ -7,7 +7,7 @@ Backend uses
               passportJS
               mongoDB
               mongoose
-              express session
+              express-session
               
 Frontend uses
               React
