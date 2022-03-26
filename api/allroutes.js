@@ -127,8 +127,6 @@ router.get("/logout", (req, res, next) => {
   }
 });
 
-//all these logged-in routes need to be modified to not allow direct access by just using the url. also use try catch when dealing with user provided stuff
-
 router.get("/login-success", (req, res, next) => {
   if (req.isAuthenticated()) {
     res.status(200).json({ loggedIn: true, user: req.user.username });

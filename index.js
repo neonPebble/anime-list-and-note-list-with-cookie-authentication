@@ -1,8 +1,3 @@
-//  need cors
-// vercel is somehow altering import into require and browser console shows require not defined error. it even modifies stuff inside .output/static that its supposed to not modify. so I wont be using vercel again for full stack projects
-
-//mongoose is essentially useless for express-session ..must verify if it is actually working properly
-
 const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -72,9 +67,6 @@ app.use(passport.session());
 
 // use  all of the routes from ./api/index.js
 app.use(routes);
-
-// the html file for whatever reason uses "/<resource-location>" instead of "/notelist/<resource-location>"
-//I can modify the files manually ...but thats not how it is supposed to be done
 
 /*
 express.static(root, [options])
