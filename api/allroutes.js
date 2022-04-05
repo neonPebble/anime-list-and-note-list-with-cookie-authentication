@@ -42,11 +42,15 @@ router.post("/register", async (req, res, next) => {
 
       // res.redirect("/login");
       res.status(201).json({ status: "done" });
+    } else {
+      console.log("some one tried to register with existing username");
+      res
+        .status(400)
+        .json({
+          status: "failed",
+          descr: "This username is already registered",
+        });
     }
-    console.log("some one tried to register with existing username");
-    res
-      .status(400)
-      .json({ status: "failed", descr: "This username is already registered" });
   } catch (error) {
     console.log(error);
     res.status(500).json({ status: "failed", descr: "some error" });
