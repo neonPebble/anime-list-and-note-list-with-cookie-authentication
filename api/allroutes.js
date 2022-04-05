@@ -44,12 +44,10 @@ router.post("/register", async (req, res, next) => {
       res.status(201).json({ status: "done" });
     } else {
       console.log("some one tried to register with existing username");
-      res
-        .status(400)
-        .json({
-          status: "failed",
-          descr: "This username is already registered",
-        });
+      res.status(400).json({
+        status: "failed",
+        descr: "This username is already registered",
+      });
     }
   } catch (error) {
     console.log(error);
@@ -76,7 +74,7 @@ router.post("/updatenotelist", isAuth, (req, res, next) => {
     });
 });
 
-router.post("/remAnime", isAuth, (req, res, next) => {
+router.post("/remAnime", isAuth, async (req, res, next) => {
   const remId = req.body.aniId;
   const remIndex = searchAnimIndex(req.user.animelist, remId);
   req.user.animelist.splice(remIndex, 1);
@@ -100,10 +98,11 @@ router.post("/addAnime", isAuth, async (req, res, next) => {
       req.user.animelist.push(newAnime);
       await req.user.save();
       res.status(200).json({ status: "done" });
+    } else {
+      res
+        .status(400)
+        .json({ status: "failed", descr: "Anime already in your list" });
     }
-    res
-      .status(400)
-      .json({ status: "failed", descr: "Anime already in your list" });
   } catch (error) {
     res.status(500).json({ status: "failed", descr: "server error" });
   }
