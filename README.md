@@ -10,7 +10,7 @@ Backend uses
               <li>express-session</li></ul>
               
 Frontend uses
-              <ul style="padding-left:20%"><li>React</li>
+              <ul><li>React</li>
               <li>tailwind</li></ul>
               
               
