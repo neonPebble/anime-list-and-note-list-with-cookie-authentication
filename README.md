@@ -2,12 +2,12 @@
 Backend for anime list and note list  app with anime search using external graphql api and cookie based user authentication.
 
 Backend uses 
-              NodeJS
-              expressJS
-              passportJS
-              mongoDB
-              mongoose
-              express-session
+              <ul><li>NodeJS</li>
+              <li>expressJS</li>
+              <li>passportJS</li>
+              <li>mongoDB</li>
+              <li>mongoose</li>
+              <li>express-session</li></ul>
               
 Frontend uses
               React
