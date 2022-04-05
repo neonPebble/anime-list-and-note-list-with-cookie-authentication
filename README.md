@@ -10,8 +10,8 @@ Backend uses
               <li>express-session</li></ul>
               
 Frontend uses
-              React
-              tailwind
+              <ul><li>React</li>
+              <li>tailwind</li></ul>
               
               
   
