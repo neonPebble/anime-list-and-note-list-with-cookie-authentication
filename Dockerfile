@@ -1,6 +1,6 @@
 FROM node:lts
 
-ENV PORT 3000
+ENV PORT 5050
 
 # Create app dir
 RUN mkdir -p /usr/src/app
@@ -11,8 +11,7 @@ COPY . /usr/src/app/
 RUN npm i
 
 # Build app
-RUN npm run build
-EXPOSE 3000
+EXPOSE 5050
 
 # Run the app
 CMD "npm" "start"
