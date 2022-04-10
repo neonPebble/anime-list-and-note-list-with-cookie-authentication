@@ -1,5 +1,5 @@
 {
-  "name": "cookieLoginServer",
+  "name": "anime-list-and-note-list-with-cookie-authentication",
   "version": "1.0.0",
   "description": "A register/login server using express-session, passport-local.",
   "main": "index.js",
